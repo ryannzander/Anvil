@@ -1,0 +1,53 @@
+                    Anvil Maintainers
+                    =================
+
+This file lists the maintainers of subsystems within Anvil. Each subsystem
+has a primary maintainer who reviews patches for that area. Maintainers
+should be CC'd on patches that touch their subsystem.
+
+Fields:
+    M:   Maintainer name + email
+    F:   File / directory patterns this entry covers
+    S:   Status (Supported / Maintained / Orphan)
+
+----------------------------------------------------------------------------
+
+GENERAL
+M:  The Anvil Contributors <noreply@example.com>
+F:  *
+S:  Maintained
+
+CORE TYPES
+F:  include/core/
+F:  src/core/
+S:  Maintained
+
+PLATFORM / WIN64 BINDINGS
+F:  include/platform/
+F:  src/platform/
+S:  Maintained
+
+WINDOW SUBSYSTEM
+F:  include/window/
+F:  src/window/
+S:  Maintained
+
+DRAWING
+F:  include/drawing/
+F:  src/drawing/
+S:  Maintained
+
+WIDGETS
+F:  include/widgets/
+F:  src/widgets/
+S:  Maintained
+
+TESTS
+F:  tests/
+S:  Maintained
+
+BUILD SYSTEM
+F:  Makefile
+F:  build.ps1
+F:  .github/workflows/
+S:  Maintained
