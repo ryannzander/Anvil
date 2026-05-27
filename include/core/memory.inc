@@ -27,21 +27,20 @@
 
 %define ANVIL_ARENA_MAGIC           0x414E5649_4C41524E   ; 'ANVI' 'LARN'
 
-; Heap helpers
+%ifndef ANVIL_IMPL_MEMORY
 extern  anvil_alloc                 ; (u64 bytes) -> void*  (NULL on fail)
 extern  anvil_calloc                ; (u64 bytes) -> void*  (zeroed)
 extern  anvil_free                  ; (void*) -> void
 
-; Arena allocator
 extern  anvil_arena_init            ; (ARENA*, void* buf, u64 cap) -> i64 status
 extern  anvil_arena_alloc           ; (ARENA*, u64 bytes) -> void*
 extern  anvil_arena_reset           ; (ARENA*) -> void
 extern  anvil_arena_used            ; (ARENA*) -> u64
 extern  anvil_arena_remaining       ; (ARENA*) -> u64
 
-; Misc
 extern  anvil_memzero               ; (void* dst, u64 n) -> void
 extern  anvil_memcopy               ; (void* dst, void* src, u64 n) -> void
 extern  anvil_memcompare            ; (void* a, void* b, u64 n) -> i64
+%endif
 
 %endif  ; ANVIL_CORE_MEMORY_INC

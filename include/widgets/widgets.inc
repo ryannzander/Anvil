@@ -102,21 +102,26 @@
 %define ANVIL_ALIGN_CENTER          1
 %define ANVIL_ALIGN_RIGHT           2
 
-; Public routines
+%ifndef ANVIL_IMPL_WIDGET
 extern  anvil_widget_init           ; (WIDGET*, VTBL*) -> void
 extern  anvil_widget_set_bounds     ; (WIDGET*, RECT*) -> void
 extern  anvil_widget_add_child      ; (WIDGET* parent, WIDGET* child) -> void
 extern  anvil_widget_dispatch_event ; (WIDGET*, EVENT*) -> bool
 extern  anvil_widget_paint          ; (WIDGET*, HDC) -> void
+%endif
 
+%ifndef ANVIL_IMPL_BUTTON
 extern  anvil_button_create         ; (LPCSTR label, void(*on_click)(BUTTON*)) -> BUTTON*
 extern  anvil_button_destroy        ; (BUTTON*) -> void
 extern  anvil_button_set_label      ; (BUTTON*, LPCSTR) -> void
 extern  anvil_button_set_colors     ; (BUTTON*, u32 bg, u32 fg) -> void
+%endif
 
+%ifndef ANVIL_IMPL_LABEL
 extern  anvil_label_create          ; (LPCSTR text, u32 color) -> LABEL*
 extern  anvil_label_destroy         ; (LABEL*) -> void
 extern  anvil_label_set_text        ; (LABEL*, LPCSTR) -> void
 extern  anvil_label_set_align       ; (LABEL*, u32 align) -> void
+%endif
 
 %endif  ; ANVIL_WIDGETS_INC

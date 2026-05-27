@@ -74,6 +74,7 @@
 ; -----------------------------------------------------------------------------
 ; Public routines
 ; -----------------------------------------------------------------------------
+%ifndef ANVIL_IMPL_WINDOW
 extern  anvil_init                  ; () -> i64 status
 extern  anvil_shutdown              ; () -> void
 
@@ -87,5 +88,6 @@ extern  anvil_window_hwnd           ; (ANVIL_WINDOW*) -> HWND
 extern  anvil_window_set_root       ; (ANVIL_WINDOW*, ANVIL_WIDGET*) -> void
 
 extern  anvil_run                   ; () -> i32  exit code
+%endif
 
 %endif  ; ANVIL_WINDOW_INC

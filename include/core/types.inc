@@ -37,12 +37,13 @@
 ; -----------------------------------------------------------------------------
 %define ANVIL_COLOR_size            4
 
-; Public routines exported by src/core/point.asm
+%ifndef ANVIL_IMPL_POINT
 extern  anvil_point_make            ; (i32 x, i32 y) -> packed i64 {x,y}
 extern  anvil_point_eq              ; (POINT* a, POINT* b) -> bool
+%endif
 
-; Public routines exported by src/core/rect.asm
-extern  anvil_rect_make             ; (i32 l, i32 t, i32 r, i32 b) -> void(out RCX)
+%ifndef ANVIL_IMPL_RECT
+extern  anvil_rect_make             ; (RECT* out, i32 l, i32 t, i32 r, i32 b) -> void
 extern  anvil_rect_width            ; (RECT* r) -> i32
 extern  anvil_rect_height           ; (RECT* r) -> i32
 extern  anvil_rect_contains_point   ; (RECT* r, i32 x, i32 y) -> bool
@@ -51,8 +52,9 @@ extern  anvil_rect_inflate          ; (RECT* r, i32 dx, i32 dy) -> void
 extern  anvil_rect_offset           ; (RECT* r, i32 dx, i32 dy) -> void
 extern  anvil_rect_is_empty         ; (RECT* r) -> bool
 extern  anvil_rect_equal            ; (RECT* a, RECT* b) -> bool
+%endif
 
-; Public routines exported by src/core/color.asm
+%ifndef ANVIL_IMPL_COLOR
 extern  anvil_color_rgb             ; (u8 r, u8 g, u8 b) -> u32 packed
 extern  anvil_color_rgba            ; (u8 r, u8 g, u8 b, u8 a) -> u32 packed
 extern  anvil_color_to_colorref     ; (u32 color) -> COLORREF
@@ -61,12 +63,12 @@ extern  anvil_color_green           ; (u32 color) -> u8
 extern  anvil_color_blue            ; (u32 color) -> u8
 extern  anvil_color_alpha           ; (u32 color) -> u8
 
-; Predefined colors (defined in src/core/color.asm)
-extern  ANVIL_COLOR_BLACK
-extern  ANVIL_COLOR_WHITE
-extern  ANVIL_COLOR_RED
-extern  ANVIL_COLOR_GREEN
-extern  ANVIL_COLOR_BLUE
-extern  ANVIL_COLOR_GRAY
+extern  g_anvil_color_black
+extern  g_anvil_color_white
+extern  g_anvil_color_red
+extern  g_anvil_color_green
+extern  g_anvil_color_blue
+extern  g_anvil_color_gray
+%endif
 
 %endif  ; ANVIL_CORE_TYPES_INC

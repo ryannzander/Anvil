@@ -38,7 +38,7 @@
 %define ANVIL_BRUSH_hbrush          0
 %define ANVIL_BRUSH_color           8
 
-; Public routines
+%ifndef ANVIL_IMPL_DRAWING
 extern  anvil_pen_create            ; (i32 style, i32 width, u32 color, PEN* out) -> i64
 extern  anvil_pen_destroy           ; (PEN*) -> void
 
@@ -50,5 +50,6 @@ extern  anvil_draw_rect             ; (HDC, PEN*, BRUSH*, RECT*) -> void
 extern  anvil_draw_filled_rect      ; (HDC, BRUSH*, RECT*) -> void
 extern  anvil_draw_ellipse          ; (HDC, PEN*, BRUSH*, RECT*) -> void
 extern  anvil_draw_text             ; (HDC, LPCSTR, i32 len, i32 x, i32 y, u32 color) -> void
+%endif
 
 %endif  ; ANVIL_DRAWING_INC

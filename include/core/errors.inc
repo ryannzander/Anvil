@@ -17,15 +17,19 @@
 %define ANVIL_E_NOTFOUND            -6
 %define ANVIL_E_STATE               -7
 
-; Public routines exported by src/core/errors.asm
+; Public routines exported by src/core/errors.asm.
+; The implementation file defines ANVIL_IMPL_ERRORS before including
+; this header so it can use the constants above without colliding with
+; its own definitions of these symbols.
+%ifndef ANVIL_IMPL_ERRORS
 extern  anvil_last_error            ; () -> i64
 extern  anvil_set_last_error        ; (i64 code) -> void
 extern  anvil_platform_error        ; () -> u32
 extern  anvil_clear_errors          ; () -> void
+extern  anvil_set_platform_error    ; () -> i64  (internal but useful)
 
-; Globals (private to the errors translation unit; declared here for the
-; small number of inlining macros that touch them).
 extern  g_anvil_last_error          ; i64
 extern  g_anvil_platform_error      ; u32
+%endif
 
 %endif  ; ANVIL_CORE_ERRORS_INC
