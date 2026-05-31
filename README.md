@@ -4,20 +4,8 @@
 
 Anvil is a small, structured GUI toolkit implemented entirely in NASM
 assembly for Windows x64. It speaks directly to the Win32 API and exposes a
-layered, well-documented set of primitives — points, rectangles, colors,
-windows, an event loop, drawing primitives, and a widget framework — without
-any C runtime dependency in the library itself.
-
-The project exists for three reasons:
-
-1. **Pedagogy.** A working GUI toolkit is one of the densest examples of
-   real-world calling conventions, structured data, callbacks, and OS
-   interop. Doing it in assembly forces every detail to be explicit.
-2. **Demonstration.** It shows that "high-level" abstractions like widgets,
-   layouts, and event dispatch are not married to high-level languages.
-3. **Reference.** Every module is documented at the level you would expect
-   from a serious systems project — calling convention, register clobbers,
-   error semantics, and tests.
+layered, well-documented set of primitive points, rectangles, colors,
+windows, an event loop, drawing primitives, and a widget framework.
 
 ## Status
 
